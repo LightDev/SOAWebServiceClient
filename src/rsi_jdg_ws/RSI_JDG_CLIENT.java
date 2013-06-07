@@ -6,12 +6,10 @@ package rsi_jdg_ws;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Scanner;
 import javax.xml.namespace.QName;
+import javax.xml.ws.Endpoint;
 import javax.xml.ws.Service;
 
 /**
@@ -28,7 +26,8 @@ public class RSI_JDG_CLIENT {
     }
 
     public static void main(String[] args) throws MalformedURLException, SQLException {
-
+//        Endpoint.publish("http://localhost:9999/OrderProcessWeb/orderprocess",
+//                new RSI_JDG_WS());
         RSI_JDG_WS port = getHandle();
         int c;
         Scanner s = new Scanner(System.in);
@@ -54,7 +53,7 @@ public class RSI_JDG_CLIENT {
                     System.out.println(port.pokaz());
                     break;
                 case 3:
-                    System.out.println("Podaj NIP do usunięcia:");
+                    System.out.println("Podaj NIP JDG do usunięcia:");
                     nip = s.next();
                     break;
                 case 4:
